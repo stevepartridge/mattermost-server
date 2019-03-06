@@ -45,10 +45,6 @@ func TestDoAdvancedPermissionsMigration(t *testing.T) {
 	th := Setup(t)
 	defer th.TearDown()
 
-	if mainHelper.SqlSupplier == nil {
-		t.Skip("This test requires a TestStore to be run.")
-	}
-
 	th.ResetRoleMigration()
 
 	th.App.DoAdvancedPermissionsMigration()
@@ -167,6 +163,11 @@ func TestDoAdvancedPermissionsMigration(t *testing.T) {
 			model.PERMISSION_CREATE_USER_ACCESS_TOKEN.Id,
 			model.PERMISSION_READ_USER_ACCESS_TOKEN.Id,
 			model.PERMISSION_REVOKE_USER_ACCESS_TOKEN.Id,
+			model.PERMISSION_CREATE_BOT.Id,
+			model.PERMISSION_READ_BOTS.Id,
+			model.PERMISSION_READ_OTHERS_BOTS.Id,
+			model.PERMISSION_MANAGE_BOTS.Id,
+			model.PERMISSION_MANAGE_OTHERS_BOTS.Id,
 			model.PERMISSION_REMOVE_OTHERS_REACTIONS.Id,
 			model.PERMISSION_LIST_TEAM_CHANNELS.Id,
 			model.PERMISSION_JOIN_PUBLIC_CHANNELS.Id,
@@ -335,6 +336,11 @@ func TestDoAdvancedPermissionsMigration(t *testing.T) {
 			model.PERMISSION_CREATE_USER_ACCESS_TOKEN.Id,
 			model.PERMISSION_READ_USER_ACCESS_TOKEN.Id,
 			model.PERMISSION_REVOKE_USER_ACCESS_TOKEN.Id,
+			model.PERMISSION_CREATE_BOT.Id,
+			model.PERMISSION_READ_BOTS.Id,
+			model.PERMISSION_READ_OTHERS_BOTS.Id,
+			model.PERMISSION_MANAGE_BOTS.Id,
+			model.PERMISSION_MANAGE_OTHERS_BOTS.Id,
 			model.PERMISSION_REMOVE_OTHERS_REACTIONS.Id,
 			model.PERMISSION_LIST_TEAM_CHANNELS.Id,
 			model.PERMISSION_JOIN_PUBLIC_CHANNELS.Id,
@@ -424,10 +430,6 @@ func TestDoEmojisPermissionsMigration(t *testing.T) {
 	th := Setup(t)
 	defer th.TearDown()
 
-	if mainHelper.SqlSupplier == nil {
-		t.Skip("This test requires a TestStore to be run.")
-	}
-
 	// Add a license and change the policy config.
 	restrictCustomEmojiCreation := *th.App.Config().ServiceSettings.DEPRECATED_DO_NOT_USE_RestrictCustomEmojiCreation
 
@@ -473,6 +475,11 @@ func TestDoEmojisPermissionsMigration(t *testing.T) {
 		model.PERMISSION_CREATE_USER_ACCESS_TOKEN.Id,
 		model.PERMISSION_READ_USER_ACCESS_TOKEN.Id,
 		model.PERMISSION_REVOKE_USER_ACCESS_TOKEN.Id,
+		model.PERMISSION_CREATE_BOT.Id,
+		model.PERMISSION_READ_BOTS.Id,
+		model.PERMISSION_READ_OTHERS_BOTS.Id,
+		model.PERMISSION_MANAGE_BOTS.Id,
+		model.PERMISSION_MANAGE_OTHERS_BOTS.Id,
 		model.PERMISSION_REMOVE_OTHERS_REACTIONS.Id,
 		model.PERMISSION_LIST_TEAM_CHANNELS.Id,
 		model.PERMISSION_JOIN_PUBLIC_CHANNELS.Id,
